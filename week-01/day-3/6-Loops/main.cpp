@@ -100,6 +100,34 @@ int main() {
     // Write a program that reads a number from the standard input, then draws a
     // diamond like this:
 
+    int dh = 0;
+    std::cout << "Please give me a number!(diamond)" << std::endl;
+    std::cin >> dh;
+    int st = 1;
+    for (int i = 0; i < dh/2; ++i) {
+
+        for (int j = 0; j <= dh - i; ++j) {
+            std::cout << " ";
+        }
+        for (int k = 0; k < st; ++k) {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+        st += 2;
+    }
+    for (int i = dh/2; i > 0; --i) {
+
+        for (int j = 0; j <= dh - i; ++j) {
+            std::cout << " ";
+        }
+        for (int k = 0; k < st; ++k) {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+        st -= 2;
+    }
+
+
     //-----------------------------------------------------------------------------------------------------------------
 
     // Write a program that reads a number from the standard input, then draws a
@@ -128,6 +156,27 @@ int main() {
 
     // Write a program that reads a number from the standard input, then draws a
     // square like this:
+
+    int dia = 0;
+    std::cout << "Please give me a number! (diagonal)" << std::endl;
+    std::cin >> dia;
+
+    for (int i = 0; i < dia; ++i) {
+        std::cout << "%";
+    }
+    std::cout << std::endl;
+    for (int j = 0; j < dia - 2; ++j) {
+        std::cout << "%";
+        for (int k = 0; k < dia - 2; ++k) {
+            if(j==k)std::cout << "%";
+            else std::cout << " ";
+        }
+        std::cout << "%" << std::endl;
+    }
+    for (int i = 0; i < dia; ++i) {
+        std::cout << "%";
+    }
+    std::cout << std::endl;
 
 
     //-----------------------------------------------------------------------------------------------------------------
