@@ -48,6 +48,6 @@ int main() {
         std::cout << numbers[i] << std::endl;
     }
 
-    
+
     return 0;
 }
