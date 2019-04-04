@@ -98,7 +98,6 @@ int main() {
         std::cout << aj[i];
     }
     std::cout << std::endl;
-
-
+    
     return 0;
 }
