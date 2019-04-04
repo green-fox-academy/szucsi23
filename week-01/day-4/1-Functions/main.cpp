@@ -6,6 +6,8 @@ void greet(std::string);
 
 std::string appendAFunc(std::string);
 
+int sum(int);
+
 int main() {
 
     // - Create an integer variable named `baseNum` and assign the value `123` to it
@@ -31,6 +33,14 @@ int main() {
     typo = appendAFunc (typo);
     std::cout << typo << std::endl;
 
+    // Write a function called `sum` that returns the sum of numbers from zero to the given parameter
+    int x = 0;
+    std::cout << "Please give me a number!" << std::endl;
+    std::cin >> x;
+    x = sum(x);
+    std::cout << x << std::endl;
+
+
 
 
 
@@ -47,4 +57,12 @@ void greet (std::string a) {
 
 std::string appendAFunc(std::string a) {
     return (a += "a");
+}
+
+int sum (int a) {
+    int b = 0;
+    for (int i = 0; i <= a; ++i) {
+        b += i;
+    }
+    return b;
 }
