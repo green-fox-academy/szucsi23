@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 
-int unique (int[], int[], int);
+int unique (int[], int);
+int unique2 (int[], int);
 
 int main() {
     //  Create a function that takes a list of numbers as a parameter
@@ -11,40 +12,60 @@ int main() {
     //  Example
     int numbers[] = {1, 11, 34, 11, 52, 61, 1, 34};
     int size = sizeof(numbers)/ sizeof(int);
-    int temp_arr[size];
+
     int count = 0;
 
-    count = unique(numbers, temp_arr, size);
+    count = unique(numbers, size);
 
-    int unique_arr[count];
-
-    for (int i = 0; i < count; ++i) {
-        unique_arr[i]=temp_arr[i];
-    }
-
-    for (int i = 0; i < count; ++i) {
-        std::cout << unique_arr[i] << " ";
-    }
-    std::cout << std::endl;
+    
     return 0;
 }
 
-int unique(int numbers[], int temp_arr[], int size){
-    int count = 0;
 
+
+int unique (int numbers[], int size){
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            if(numbers[i]==numbers[j]);
+
+        }
+    }
+
+}
+
+
+
+int unique2(int numbers[], int size){
+    int count = 0;
+    int organized = 0;
+    int organized_arr[size];
+    int temp_arr[size];
 
     for (int i = 0; i < size; ++i) {
-        int temp = numbers[i];
-        bool mehet = true;
+        organized_arr[i] = numbers [i];
+    }
 
-        for (int j = i+1; j < size; ++j) {
-            if (numbers[j] != temp && mehet) {
-                count++;
-                temp_arr[i]=numbers[i];
-                mehet = false;
+
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (organized_arr[i] >= organized_arr[j]) {
+                organized = organized_arr[i];
+                organized_arr[i] = organized_arr[j];
+                organized_arr[j] = organized;
             }
         }
     }
 
+    for (int i = 0; i < size; ++i) {
+        if(organized_arr[i]==organized_arr[i+1]) {
+            temp_arr[count] = organized_arr[i];
+            i++;
+            count++;
+        }
+    }
+
+    for (int i = 0; i < count; ++i) {
+        std::cout << temp_arr[i] << " ";
+    }
     return count;
 }
