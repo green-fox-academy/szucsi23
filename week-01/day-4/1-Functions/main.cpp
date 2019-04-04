@@ -4,6 +4,8 @@ int doubling (int);
 
 void greet(std::string);
 
+std::string appendAFunc(std::string);
+
 int main() {
 
     // - Create an integer variable named `baseNum` and assign the value `123` to it
@@ -20,6 +22,16 @@ int main() {
     std::string al = "Greenfox";
     greet(al);
 
+    // - Create a string variable named `typo` and assign the value `Chinchill` to it
+    // - Write a function called `appendAFunc` that gets a string as an input,
+    //   appends an 'a' character to its end and returns with a string
+    //
+    // - Print the result of `appendAFunc(typo)`
+    std::string typo = "Chinchill";
+    typo = appendAFunc (typo);
+    std::cout << typo << std::endl;
+
+
 
 
     return 0;
@@ -31,4 +43,8 @@ int doubling (int a) {
 
 void greet (std::string a) {
     std::cout << "Welcome, dear "  << a << "!" << std::endl;
+}
+
+std::string appendAFunc(std::string a) {
+    return (a += "a");
 }
