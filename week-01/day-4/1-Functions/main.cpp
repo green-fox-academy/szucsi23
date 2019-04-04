@@ -47,9 +47,10 @@ int main() {
     // - Create a function called `factorio`
     //   it should calculate its input's factorial.
     //   it should not return it, but take an additional integer parameter and overwrite its value.
-    int fx = 3;
+    int fx = 12;
     int fy = 0;
     factorio(fx, fy);
+    std::cout << "factor:" << std::endl;
     std::cout << fx << " " << fy << std::endl;
 
     // Create two integer variables: a=15, b=23
