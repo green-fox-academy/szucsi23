@@ -7,6 +7,7 @@ void greet(std::string);
 std::string appendAFunc(std::string);
 
 int sum(int);
+ void factorio (int, int&);
 
 int main() {
 
@@ -40,7 +41,13 @@ int main() {
     x = sum(x);
     std::cout << x << std::endl;
 
-
+    // - Create a function called `factorio`
+    //   it should calculate its input's factorial.
+    //   it should not return it, but take an additional integer parameter and overwrite its value.
+    int fx = 3;
+    int fy = 0;
+    factorio(fx, fy);
+    std::cout << fx << " " << fy << std::endl;
 
 
 
@@ -65,4 +72,11 @@ int sum (int a) {
         b += i;
     }
     return b;
+}
+void factorio (int a, int& b){
+    int c = 1;
+    for (int i = 0; i < a; ++i) {
+        c *= i+1;
+    }
+    b = c;
 }
