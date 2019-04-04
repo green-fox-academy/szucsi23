@@ -73,7 +73,31 @@ int main() {
         sum += ai[i];
     }
     std::cout << sum << std::endl;
-    
+
+    // - Create an array variable named `aj`
+    //   with the following content: `[3, 4, 5, 6, 7]`
+    // - Reverse the order of the elements in `aj`
+    // - Print the elements of the reversed `aj`
+    int aj[] = {3, 4, 5, 6, 7};
+    int size = sizeof(aj) / sizeof(int);
+    int temp_arr[size];
+
+    for (int i = 0; i < size; ++i) {
+        std::cout << aj[i];
+    }
+    std::cout << std::endl;
+
+    for (int i = 0; i < size; ++i) {
+        temp_arr[i] = aj[i];
+        std::cout << temp_arr[i];
+    }
+    std::cout << std::endl;
+
+    for (int i = 0; i < size; ++i) {
+        aj[i] = temp_arr[size - 1 - i];
+        std::cout << aj[i];
+    }
+    std::cout << std::endl;
 
 
     return 0;
