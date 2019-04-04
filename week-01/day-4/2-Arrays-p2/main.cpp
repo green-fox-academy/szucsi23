@@ -16,10 +16,10 @@ int main() {
     int x = 4;
     int y = 4;
 
-    int matrix [x][y];
+    int matrix[x][y];
     for (int i = 0; i < x; ++i) {
         for (int j = 0; j < y; ++j) {
-            if(i==j) matrix[i][j] = 1;
+            if (i == j) matrix[i][j] = 1;
             else matrix[i][j] = 0;
             std::cout << matrix[i][j];
         }
@@ -30,8 +30,8 @@ int main() {
     //   with the following content: `[3, 4, 5, 6, 7]`
     // - Double all the values in the array
     int numList[] = {3, 4, 5, 6, 7};
-    for (int i = 0; i < (sizeof(numList)/ sizeof(int)); ++i) {
-        numList[i] *=2;
+    for (int i = 0; i < (sizeof(numList) / sizeof(int)); ++i) {
+        numList[i] *= 2;
     }
 
     // - Create a two dimensional array
@@ -43,18 +43,26 @@ int main() {
     // - In `colors[2]` store the shades of pink:
     //   `"orchid", "violet", "pink", "hot pink"`
     std::string colors[3][5] = {
-            {"lime", "forest green", "olive", "pale green", "spring green"},
-            {"orange red", "red", "tomato"},
-            {"orchid", "violet", "pink", "hot pink"}
+            {"lime",       "forest green", "olive", "pale green", "spring green"},
+            {"orange red", "red",          "tomato"},
+            {"orchid",     "violet",       "pink",  "hot pink"}
     };
 
     // - Create an array variable named `animals`
     //   with the following content: `["koal", "pand", "zebr"]`
     // - Add all elements an `"a"` at the end
-        std::string animals[] = {"koal", "pand", "zebr"};
+    std::string animals[] = {"koal", "pand", "zebr"};
     for (int i = 0; i < 3; ++i) {
         animals[i] += "a";
     }
+
+    // - Create an array variable named `abc`
+    //   with the following content: `["first", "second", "third"]`
+    // - Swap the first and the third element of `abc`
+    std::string abc[] = {"first", "second", "third"};
+    std::string temp = abc[0];
+    abc[0] = abc[2];
+    abc[2] = temp;
 
     
 
