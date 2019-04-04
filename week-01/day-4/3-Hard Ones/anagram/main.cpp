@@ -1,6 +1,7 @@
 #include <iostream>
 
 bool anagram (std::string, std::string);
+std::string abc(std::string);
 
 int main() {
 
@@ -20,27 +21,35 @@ int main() {
 
 bool anagram (std::string in1, std::string in2) {
 
+    if(in1.length() != in2.length()) return false;
+
     int size = in1.length();
     bool yup = true;
 
+    std::string temp1 = abc(in1);
+    std::string temp2 = abc(in2);
 
-    bool Checked[size];
-    for (int i = 0; i < size; i++) Checked[i] = false;
+    for (int i = 0; i < size; ++i) {
+        if (temp1[i] != temp2[i]) yup = false;
+    }
 
+
+
+    return yup;
+}
+
+std::string abc (std::string str) {
+    int size = str.length();
+    char temp;
     for (int i = 0; i < size; i++) {
-        if (Checked[i] == false) {
-            for (int j = 0; j < size; ++j) {
-                if (in1[i] == in2[j]) {
-
-                    Checked[i] = true;
-                }
+        for (int j = i + 1; j < size; j++) {
+            if (str[i] > str[j]) {
+                temp = str[i];
+                str[i] = str[j];
+                str[j] = temp;
             }
-
         }
     }
 
-    for (int i = 0; i < size; ++i) {
-        if (Checked[i] == false) yup = false;
-    }
-    return yup;
+    return str;
 }
