@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <stdlib.h>
 
 std::string unique(int[], int);
 
@@ -11,32 +12,52 @@ int main() {
 
     //  Example
     int numbers[] = {1, 11, 34, 11, 52, 61, 1, 34};
-    int size = sizeof(numbers)/ sizeof(int);
+    int size = sizeof(numbers) / sizeof(int);
 
     std::string tempstr = unique(numbers, size);
     int tempsize = tempstr.length();
 
     int uniquesize = 0;
+    std::string temptempstr = "";
 
-    std::cout << unique(numbers, size);
+    std::cout << tempstr << std::endl;
 
+    bool gotit = false;
     for (int i = 0; i < tempsize; ++i) {
-        int j = 0;
-        if(i+1 == ' ') {
-            
+        if (tempstr[i+1] == ' ' && gotit == false) {
+            for (int j = 0; j <= i; ++j) {
+                temptempstr += tempstr[j];
+                gotit = true;
+            }
         }
     }
+
+    int realsize = stoi(temptempstr);
+
+    std::cout << realsize << std::endl;
+
+    int finallydone[realsize];
+
+    temptempstr = "";
+    int count = 0;
+
     for (int i = 0; i < tempsize; ++i) {
-        if(tempstr[i-1] == ' '){
+        if (tempstr[i - 1] == ' ') {
             int j = i;
-            while (tempstr[j+1] != ' ') j++;
+            while (tempstr[j + 1] != ' ') j++;
+            for (int k = i; k <= j; ++k) {
+                temptempstr += tempstr[k];
 
+            }
+            finallydone[count] = stoi(temptempstr);
+            temptempstr = "";
+            count++;
         }
     }
 
-
-
-
+    for (int i = 0; i < realsize; ++i) {
+        std::cout << finallydone[i] << " ";
+    }
 
     return 0;
 }
@@ -60,7 +81,7 @@ std::string unique(int numbers[], int size) {
     }
 
     for (int i = 0; i < size; ++i) {
-        if(numbers[i] != numbers[i+1]) {
+        if (numbers[i] != numbers[i + 1]) {
             tempstr += " ";
             tempstr += std::to_string(numbers[i]);
             count++;
