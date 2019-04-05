@@ -1,9 +1,6 @@
 #include <iostream>
 #include <cstring>
 
-
-
-
 std::string unique(int[], int);
 
 
@@ -16,9 +13,29 @@ int main() {
     int numbers[] = {1, 11, 34, 11, 52, 61, 1, 34};
     int size = sizeof(numbers)/ sizeof(int);
 
-    std::string uniquestr = unique(numbers, size);
+    std::string tempstr = unique(numbers, size);
+    int tempsize = tempstr.length();
+
+    int uniquesize = 0;
 
     std::cout << unique(numbers, size);
+
+    for (int i = 0; i < tempsize; ++i) {
+        int j = 0;
+        if(i+1 == ' ') {
+            
+        }
+    }
+    for (int i = 0; i < tempsize; ++i) {
+        if(tempstr[i-1] == ' '){
+            int j = i;
+            while (tempstr[j+1] != ' ') j++;
+
+        }
+    }
+
+
+
 
 
     return 0;
@@ -28,7 +45,9 @@ int main() {
 std::string unique(int numbers[], int size) {
     int small = 0;
     int temp = 0;
-    std::string str = "";
+    std::string tempstr = "";
+    std::string str;
+    int count = 0;
 
     for (int i = 0; i < size; i++) {
         for (int j = i + 1; j < size; j++) {
@@ -42,9 +61,12 @@ std::string unique(int numbers[], int size) {
 
     for (int i = 0; i < size; ++i) {
         if(numbers[i] != numbers[i+1]) {
-            str += std::to_string(numbers[i]);
-            str += " ";
+            tempstr += " ";
+            tempstr += std::to_string(numbers[i]);
+            count++;
         }
     }
+    str = std::to_string(count);
+    str += tempstr;
     return str;
 }
