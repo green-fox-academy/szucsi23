@@ -87,6 +87,7 @@ std::string unique(int numbers[], int size) {
             count++;
         }
     }
+    tempstr += " ";
     str = std::to_string(count);
     str += tempstr;
     return str;
