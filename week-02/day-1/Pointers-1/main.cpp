@@ -47,7 +47,7 @@ int main() {
     sum = *xptr + *yptr;
 
     std::cout << sum << std::endl;
-    
+
 
     return 0;
 }
