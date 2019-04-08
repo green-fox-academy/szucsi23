@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 std::string find(std::string);
 
@@ -8,6 +9,10 @@ std::string swapper(std::string str);
 
 int main() {
 
+    //Óra setup
+    std::clock_t start;
+    double duration;
+
     std::string str;
 
     std::cout << "Give me a string." << std::endl;
@@ -15,9 +20,19 @@ int main() {
 
     int size = str.length();
 
+    //Óra indul
+    start = std::clock();
+
     std::string palindroms = find(str);
 
+    duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+    //Óra megáll
+
+
     std::cout << palindroms << std::endl;
+    std::cout << std::endl << duration << std::endl;
+
+
     return 0;
 }
 
@@ -33,7 +48,7 @@ std::string find(std::string str) {
             }
             if (isPalindrom(temp)) {
                 collecting += temp;
-                collecting += " ";
+                collecting += " | ";
             }
             temp = "";
         }
