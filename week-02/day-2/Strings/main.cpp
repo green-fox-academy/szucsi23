@@ -56,6 +56,23 @@ int main() {
 
     //------------------------------------------------------------------------------------------------------------------
 
+    std::string todoText = " - Buy milk\n";
+    // Add "My todo:" to the beginning of the todoText
+    todoText.insert(0, "My todo: \n");
+    // Add " - Download games" to the end of the todoText
+    todoText.append(" - Download games \n");
+    // Add " - Diablo" to the end of the todoText but with indentation
+    todoText += "    - Diablo";
+
+    // Expected outpt:
+
+    // My todo:
+    //  - Buy milk
+    //  - Download games
+    //      - Diablo
+
+    std::cout << todoText << std::endl;
+
     return 0;
 }
 
