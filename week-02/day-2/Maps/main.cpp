@@ -97,5 +97,21 @@ int main() {
         std::cout << iter->second << " (ISBN: " << iter->first << ")" << std::endl;
     }
 
+   // Print whether there is an associated value with key 478-0-61159-424-8 or not
+
+    std::cout << "There is ";
+    iter = map.find("478-0-61159-424-8");
+    if (iter == map.end()) {
+        std::cout << "no ";
+    } else {
+        std::cout << "a ";
+    }
+    std::cout << "value associated with the key 478-0-61159-424-8." << std::endl;
+
+    //Print the value associated with key 978-1-60309-453-5
+
+    iter = map.find("978-1-60309-453-5");
+    std::cout << iter->second << std::endl;
+
     return 0;
 }
