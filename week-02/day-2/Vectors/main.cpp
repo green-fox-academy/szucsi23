@@ -106,12 +106,30 @@ int main() {
     iter = A.begin()+4;
     A.insert(iter, "Kiwifruit");
     //Compare the size of List A and List B
-    
+    if(A.size()>B.size()){
+        std::cout << "A" << std::endl;
+    } else if (B.size()>A.size()){
+        std::cout << "B" << std::endl;
+    }
     //Get the index of Avocado from List A
+    int indexA = 0;
+    for (int k = 0; k < A.size(); ++k) {
+        if(A.at(k) == "Avocado") {
+            indexA = k;
+        }
+    }
     //Get the index of Durian from List B
+    int indexB = 0;
+    for (int k = 0; k < B.size(); ++k) {
+        if(B.at(k) == "Durian") {
+            indexB = k;
+        }
+    }
     //Add Passion Fruit and Pummelo to List B in a single statement
+    iter = B.end();
+    B.insert(iter, "Pomelo", "Passion Fruit");
     //Print out the 3rd element from List A
-
+    std::cout << A[2] << std::endl;
 
 
     return 0;
