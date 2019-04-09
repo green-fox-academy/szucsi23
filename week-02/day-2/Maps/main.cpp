@@ -4,11 +4,11 @@
 int main() {
 
     //Create an empty map where the keys are integers and the values are characters
-    std::map<int,char> cucc;
+    std::map<int, char> cucc;
 
     //Print out whether the map is empty or not
     std::cout << "This map is ";
-    if(cucc.empty() == 0) {
+    if (cucc.empty() == 0) {
         std::cout << "not ";
     }
     std::cout << "empty." << std::endl;
@@ -26,12 +26,12 @@ int main() {
     //Print all the keys
 
 
-    for (it=cucc.begin(); it != cucc.end(); ++it) {
+    for (it = cucc.begin(); it != cucc.end(); ++it) {
         std::cout << it->first << " ";
     }
     std::cout << std::endl;
     //Print all the values
-    for (it=cucc.begin(); it != cucc.end(); ++it) {
+    for (it = cucc.begin(); it != cucc.end(); ++it) {
         std::cout << it->second << " ";
     }
     std::cout << std::endl;
@@ -49,7 +49,7 @@ int main() {
     //Print whether there is an associated value with key 100 or not
     std::cout << "There is ";
     it = cucc.find(100);
-    if(it == cucc.end()) {
+    if (it == cucc.end()) {
         std::cout << "no ";
     } else {
         std::cout << "a ";
@@ -57,5 +57,45 @@ int main() {
     std::cout << "value associated with the key 100." << std::endl;
     //Remove all the key-value pairs
     cucc.clear();
+
+    std::cout << std::endl;
+    //------------------------------------------------------------------------------------------------------------------
+
+    //Create a map where the keys are strings and the values are strings with the following initial values
+    std::map<std::string, std::string> map;
+    map = {
+            {"978-1-60309-452-8", "A Letter to Jo"},
+            {"978-1-60309-459-7", "Lupus"},
+            {"978-1-60309-444-3", "Red Panda and Moon Bear"},
+            {"978-1-60309-461-0", "The Lab"}
+    };
+    std::map<std::string, std::string>::iterator iter;
+    iter = map.begin();
+
+    //Print all the key-value pairs in the following format
+
+    for (iter = map.begin(); iter != map.end() ; iter++) {
+        std::cout << iter->second << " (ISBN: " << iter->first << ")" << std::endl;
+    }
+
+    //Remove the key-value pair with key 978-1-60309-444-3
+    map.erase("978-1-60309-444-3");
+    //Remove the key-value pair with value The Lab
+    for (iter = map.begin(); iter != map.end() ; iter++) {
+        if(iter->second == "The Lab") {
+            map.erase(iter);
+            break;
+        }
+    }
+    //Add the following key-value pairs to the map
+    iter = map.begin();
+    map.insert(iter, std::pair<std::string, std::string>("978-1-60309-450-4", "They Called Us Enemy"));
+    map.insert(iter, std::pair<std::string, std::string>("978-1-60309-453-5", "Why Did We Trust Him?"));
+
+    std::cout << std::endl;
+    for (iter = map.begin(); iter != map.end() ; iter++) {
+        std::cout << iter->second << " (ISBN: " << iter->first << ")" << std::endl;
+    }
+
     return 0;
 }
