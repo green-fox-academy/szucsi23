@@ -72,5 +72,47 @@ int main() {
     }
     std::cout << std::endl;
     std::cout << sum << " " << max << " " << min << " " << avg << std::endl;
+
+    //------------------------------------------------------------------------------------------------------------------
+
+
+    //Create a list ('List A') which contains the following values
+    //Apple, Avocado, Blueberries, Durian, Lychee
+    std::vector<std::string> A = {"Apple", "Avocado", "Blueberries", "Durian", "Lychee"};
+
+    //Create a new list ('List B') with the values of List A
+    std::vector<std::string> B = A;
+
+    //Print out whether List A contains Durian or not
+    bool flag = true;
+
+    std::cout << "The list A does ";
+    for (int k = 0; k < A.size(); ++k) {
+        if(A.at(k) == "Durian") {
+            flag = false;
+        }
+    }
+    if(flag) std::cout << "not ";
+    std::cout << "contain Durian." << std::endl;
+    //        Remove Durian from List B
+
+    std::vector<std::string>::iterator iter;
+    for (iter = B.begin(); iter < B.end(); ++iter) {
+        if(*iter == "Durian") {
+            B.erase(iter);
+        }
+    }
+    //Add Kiwifruit to List A after the 4th element
+    iter = A.begin()+4;
+    A.insert(iter, "Kiwifruit");
+    //Compare the size of List A and List B
+    
+    //Get the index of Avocado from List A
+    //Get the index of Durian from List B
+    //Add Passion Fruit and Pummelo to List B in a single statement
+    //Print out the 3rd element from List A
+
+
+
     return 0;
 }
