@@ -50,7 +50,7 @@ int main( int argc, char* args[] )
         }
 
         //Clear screen
-        SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
+        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(renderer);
 
         draw();
@@ -68,8 +68,7 @@ int main( int argc, char* args[] )
 //----------------------------------------------------------------------------------------------------------------------
 void draw()
 {
-    // draw a red horizontal line to the canvas' middle.
-    // draw a green vertical line to the canvas' middle.
+
 }
 
 bool init()
