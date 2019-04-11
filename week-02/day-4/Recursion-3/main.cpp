@@ -40,7 +40,6 @@ std::string xchangey(std::string str, int size)
 
 std::string xremove(std::string str, int size)
 {
-    int i = 0;
     if(size < 0){
         return str;
     } else if(str[size] == 'x'){
@@ -51,11 +50,10 @@ std::string xremove(std::string str, int size)
 
 std::string addstar(std::string str, int size)
 {
-    int i = 0;
     if(size < 0){
         return str;
-    } else if(str[size] == 'x'){
-        str.erase(size, 1);
+    } else {
+        str.insert(size, "*");
     }
-    return xremove(str, size-1);
+    return addstar(str, size-1);
 }
