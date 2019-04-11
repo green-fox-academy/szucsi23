@@ -16,7 +16,7 @@ int main()
     result = fibonacci(x);
     std::cout << result << std::endl;
 
-    int arr[] = {1, 13, 451, 46, 23, 3, 6, 4, 67, 2, 324, 42};
+    int arr[] = {1, 13, 1, 46, 23, 3, 6, 4, 67, 2, 324, 42};
     int size = sizeof(arr) / sizeof(int);
     result = max(arr, size);
     std::cout << result << std::endl;
@@ -26,8 +26,8 @@ int main()
 
 int fibonacci(int n)
 {
-    if (n <= 1) {
-        return n;
+    if (n-2 <=1) { //todo: vagy maybe???
+        return 1;
     } else {
         return (fibonacci(n - 1) + fibonacci(n - 2));
     }
