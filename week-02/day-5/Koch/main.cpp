@@ -22,7 +22,7 @@ void drawflake(pont&, int);
 pont line(pont, int, int);
 
 void koch(pont&, int, int, int);
-void kochflake(pont &p, int c, int angle, int n, int m);
+void kochflake(pont &, int , int, int);
 
 //Starts up SDL and creates window
 bool init();
@@ -108,12 +108,12 @@ int main(int argc, char *args[])
         SDL_RenderClear(gRenderer);
 
         pont p;
-        p.x = 10;
-        p.y = 500;
+        p.x = 500;
+        p.y = 100;
 
-        draw(p, 3);
+        //draw(p, 3);
 
-        drawflake(p, 1, 1)
+        drawflake(p, 3);
 
         //Update screen
         SDL_RenderPresent(gRenderer);
@@ -169,19 +169,12 @@ void koch(pont &p, int c, int angle, int n)
     }
 }
 
-void kochflake(pont &p, int c, int angle, int n, int m)
+void kochflake(pont &p, int c, int angle, int n)
 {
-
-    if (n == 0) {
-        p = line(p, c, angle);
-    } else {
-        koch(p, c, angle, n - 1);
-        angle += 60;
-        koch(p, c, angle, n - 1);
-        angle -= 120;
-        koch(p, c, angle, n - 1);
-        angle += 60;
-        koch(p, c, angle, n - 1);
-    }
-    return p;
+    koch(p, c, angle, n);
+    angle -= 120;
+    koch(p, c, angle, n);
+    angle -= 120;
+    koch(p, c, angle, n);
+    angle -= 120;
 }
