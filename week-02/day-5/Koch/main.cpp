@@ -17,11 +17,12 @@ const int SCREEN_HEIGHT = 600;
 
 //Draws geometry on the canvas
 void draw(pont&, int);
+void drawflake(pont&, int);
 
 pont line(pont, int, int);
 
 void koch(pont&, int, int, int);
-
+void kochflake(pont &p, int c, int angle, int n, int m);
 
 //Starts up SDL and creates window
 bool init();
@@ -109,7 +110,10 @@ int main(int argc, char *args[])
         pont p;
         p.x = 10;
         p.y = 500;
-        draw(p, 10);
+
+        draw(p, 3);
+
+        drawflake(p, 1, 1)
 
         //Update screen
         SDL_RenderPresent(gRenderer);
@@ -123,9 +127,16 @@ int main(int argc, char *args[])
 
 void draw(pont &p, int n)
 {
-    //line(p, 100, 0);
-    //SDL_Delay(1000);
-    koch(p, 10, 0, n);
+    int size = 10;
+    int angle = 0;
+    koch(p, size, angle, n);
+}
+
+void drawflake(pont &p, int n)
+{
+    int size = 10;
+    int angle = 0;
+    kochflake(p, size, angle, n);
 }
 
 pont line(pont pold, int c, int angle)
@@ -156,4 +167,21 @@ void koch(pont &p, int c, int angle, int n)
         angle += 60;
         koch(p, c, angle, n - 1);
     }
+}
+
+void kochflake(pont &p, int c, int angle, int n, int m)
+{
+
+    if (n == 0) {
+        p = line(p, c, angle);
+    } else {
+        koch(p, c, angle, n - 1);
+        angle += 60;
+        koch(p, c, angle, n - 1);
+        angle -= 120;
+        koch(p, c, angle, n - 1);
+        angle += 60;
+        koch(p, c, angle, n - 1);
+    }
+    return p;
 }
