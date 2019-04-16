@@ -43,7 +43,7 @@ int linecounter(std::string)
 {
     std::ifstream myFile;
     int counter = 0;
-    
+
     try {
         myFile.open("my-file.txt");
 
