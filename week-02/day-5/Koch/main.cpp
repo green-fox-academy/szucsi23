@@ -108,12 +108,12 @@ int main(int argc, char *args[])
         SDL_RenderClear(gRenderer);
 
         pont p;
-        p.x = 500;
+        p.x = 200;
         p.y = 100;
 
-        //draw(p, 3);
+        //draw(p, 2);
 
-        drawflake(p, 3);
+        drawflake(p, 4);
 
         //Update screen
         SDL_RenderPresent(gRenderer);
