@@ -11,7 +11,7 @@
 
 bool copy(std::string, std::string);
 
-void ids(std::string, std::vector<std::string>&);
+void ids(std::string, std::vector<std::string>, std::vector<std::string>&);
 double ratio(std::string);
 
 
@@ -39,8 +39,9 @@ int main()
     // Write a function that returns the GET / POST request ratio.
 
     std::string name = "..//log.txt";
+    std::vector<std::string> arrayfull;
     std::vector<std::string> array;
-    ids(name, array);
+    ids(name, arrayfull, array);
     std::vector<std::string>::iterator iter = array.begin();
     for (; iter != array.end(); ++iter) {
         std::cout <<*iter << std::endl;
@@ -73,7 +74,7 @@ bool copy(std::string fname1, std::string fname2)
     return true;
 }
 
-void ids(std::string name, std::vector<std::string> &array)
+void ids(std::string name, std::vector<std::string> array, std::vector<std::string> &array2)
 {
     std::ifstream logfile(name);
     std::string line;
@@ -92,6 +93,25 @@ void ids(std::string name, std::vector<std::string> &array)
             }
         }
         //std::cout << std::endl;
+    }
+
+    int size = array.size();
+    std::string temp = "";
+
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (array[i] >= array[j]) {
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < size; ++i) {
+        if(array[i] != array[i+1]) {
+            array2.push_back(array[i]);
+        }
     }
 }
 
