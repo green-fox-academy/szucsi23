@@ -3,4 +3,4 @@ project(DiceSet)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(DiceSet main.cpp)
+add_executable(DiceSet main.cpp dice_set.cpp dice_set.h)
