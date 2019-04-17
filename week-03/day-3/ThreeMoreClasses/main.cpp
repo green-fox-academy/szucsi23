@@ -3,6 +3,7 @@
 #include "Sharpie.h"
 #include "Counter.h"
 #include "SharpieSet.h"
+#include "Farm.h"
 
 void checkValue(const std::string& name, int expected, int actual)
 {
@@ -62,8 +63,18 @@ int main(int argc, char* args[])
     mySet.removeTrash();
     std::cout << count;
 
+    Animal tiger;
+    Animal cat(20, 1);
+    Animal parrot(2, 3);
+    Animal axolotl(100, 100);
 
+    Farm myFarm;
+    myFarm.breed(tiger);
+    myFarm.breed(cat);
+    myFarm.breed(parrot);
+    myFarm.breed(axolotl);
 
+    myFarm.slaughter();
 
 
 

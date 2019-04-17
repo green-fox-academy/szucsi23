@@ -1,4 +1,5 @@
 #include <iostream>
+#include <BlogPost.h>
 
 
 class PostIt {
@@ -12,22 +13,6 @@ public:
         this->textColor = tC;
         this->text = t;
     }
-};
-
-class BlogPost {
-    std::string authorName;
-    std::string title;
-    std::string text;
-    std::string publicationDate;
-public:
-    BlogPost(std::string aut, std::string tit, std::string tex, std::string pub)
-    {
-        this->authorName = aut;
-        this->title = tit;
-        this->text = tex;
-        this->publicationDate = pub;
-    }
-
 };
 
 int main()

@@ -13,6 +13,8 @@ public:
     void drink();
     void play();
 
+    int getHunger() const;
+
 private:
     int hunger;
     int thirst;

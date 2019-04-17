@@ -19,3 +19,8 @@ void Animal::drink()
 void Animal::play()
 {this->hunger++;
 this->thirst++;}
+
+int Animal::getHunger() const
+{
+    return hunger;
+}
