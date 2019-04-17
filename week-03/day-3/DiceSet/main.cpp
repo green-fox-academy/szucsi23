@@ -23,16 +23,25 @@ int main(int argc, char* args[])
     std::cout << std::endl;
 
     start = std::clock();
-    while(sixes != 6) {
-        sixes = 0;
-        diceSet.roll();
+    int counter = 0;
 
-        for (int i = 0; i < 6; ++i) {
-            if(diceSet.getCurrent(i) == 6) sixes++;
+    do{
+        counter = 0;
+        while(sixes != 6) {
+            sixes = 0;
+            diceSet.roll();
+
+            for (int i = 0; i < 6; ++i) {
+                if(diceSet.getCurrent(i) == 6) sixes++;
+            }
+            counter++;
         }
-    }
+
+    } while (counter != 1);
+
+
     duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-    std::cout << duration << std::endl;
+    std::cout << duration << "|" << counter << std::endl;
     for (int i = 0; i < 6; ++i) {
         std::cout << diceSet.getCurrent(i) << " ";
     }

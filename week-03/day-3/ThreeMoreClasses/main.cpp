@@ -2,6 +2,7 @@
 #include "Animal.h"
 #include "Sharpie.h"
 #include "Counter.h"
+#include "SharpieSet.h"
 
 void checkValue(const std::string& name, int expected, int actual)
 {
@@ -32,6 +33,54 @@ int main(int argc, char* args[])
 
     c2.reset();
     checkValue("reset", 7, c2.get());
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+
+    Sharpie s1;
+    Sharpie s2("blue", 4.0);
+    Sharpie s3("green", 1.0);
+    Sharpie s4("red", 2.3);
+
+    for (int i = 0; i < 100; ++i) {
+        s1.use();
+    }
+    for (int i = 0; i < 50; ++i) {
+        s2.use();
+    }
+
+    SharpieSet mySet;
+    mySet.add(s1);
+    mySet.add(s2);
+    mySet.add(s3);
+    mySet.add(s4);
+
+    int count = mySet.countUsable();
+    mySet.removeTrash();
+    std::cout << count;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return 0;
 }
