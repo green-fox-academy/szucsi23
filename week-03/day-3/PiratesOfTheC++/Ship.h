@@ -13,7 +13,8 @@
 
 class Ship {
 public:
-    Ship(const std::string &name = "Common Ship");
+    Ship();
+    Ship(const std::string &name);
 
     void fillship();
 

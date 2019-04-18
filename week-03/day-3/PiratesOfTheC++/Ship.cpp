@@ -4,6 +4,54 @@
 
 #include "Ship.h"
 
+Ship::Ship()
+{
+    std::string first[] = {
+            "",
+            "Lady ",
+            "ISS ",
+            "HMS ",
+            "The ",
+            "Boaty "
+    };
+    std::string middle[] = {
+            "",
+            "Midnight ",
+            "Star ",
+            "Mc",
+            "Wind ",
+            "Sun ",
+            "Ocean ",
+            "Wave ",
+            "Moon ",
+            "Ice",
+            "Night",
+            "Day"
+    };
+    std::string last[] = {
+            "",
+            "Boatface",
+            "Killer",
+            "Hunter",
+            "Pursuer",
+            "Follower",
+            "Shooter",
+            "Fighter",
+            "Howler"
+    };
+    int firstSize = sizeof(first) / sizeof(std::string);
+    int middleSize = sizeof(middle) / sizeof(std::string);
+    int lastSize = sizeof(last) / sizeof(std::string);
+
+    std::string name = "";
+    name += first[(rand() % firstSize)];
+    name += middle[(rand() % middleSize)];
+    name += last[(rand() % lastSize)];
+    if(name == "") name = "Nameless";
+
+    this->name = name;
+}
+
 Ship::Ship(const std::string &name)
 {
     this->name = name;

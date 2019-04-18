@@ -6,7 +6,7 @@
 
 void Armada::formAFleet()
 {
-    for (int i = 0; i < (rand() % 7) + 3; i++) {
+    for (int i = 0; i < (rand() % 27) + 3; i++) {
         Ship temp;
         temp.fillship();
         this->fleet.push_back(temp);
