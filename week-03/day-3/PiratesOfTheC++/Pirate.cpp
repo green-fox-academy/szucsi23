@@ -17,9 +17,9 @@ void Pirate::drinkSomeRum()
 {
     if (this->hp > 10) {
         this->drunkness++;
-        if(drunkness > 4) this->passOut();
+        if (drunkness > 4) this->passOut();
 
-    } else if (this->hp > 0){
+    } else if (this->hp > 0) {
         std::cout << "/He's passed out./" << std::endl;
 
     } else {
@@ -32,7 +32,7 @@ void Pirate::howsItGoingMate()
     if (!this->dead) {
         if (this->drunkness <= 4) {
 
-            if(passedOut){
+            if (passedOut) {
                 this->passedOut = false;
                 this->hp = 50;
             }
@@ -73,16 +73,16 @@ void Pirate::brawl(Pirate other)
             outcome += 3;
         }
 
-        if(0 <= outcome && outcome <= 10){
+        if (0 <= outcome && outcome <= 10) {
             this->die();
             std::cout << "-Arggh, this wasnt a good idea." << std::endl;
 
-        }else if(10 < outcome && outcome <= 20){
+        } else if (10 < outcome && outcome <= 20) {
             this->passOut();
             other.passOut();
             std::cout << "-Fair fight, brother!" << std::endl;
 
-        } else if(20 < outcome) {
+        } else if (20 < outcome) {
             other.die();
             std::cout << "-Ima wee tough bastard!" << std::endl;
         }

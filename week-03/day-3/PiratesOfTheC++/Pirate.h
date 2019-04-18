@@ -11,9 +11,13 @@ public:
     Pirate(int drunkness = 0, int hp = 100, bool parrot = false);
 
     void drinkSomeRum();
+
     void howsItGoingMate();
+
     void die();
+
     void passOut();
+
     void brawl(Pirate);
 
     int getDrunkness() const;

@@ -79,10 +79,10 @@ bool Ship::battle(Ship ship)
     ship.throwThemOffBoard();
     int theirScore = calculate(&ship);
 
-    Ship* winner;
-    Ship* loser;
+    Ship *winner;
+    Ship *loser;
 
-    if(myScore > theirScore){
+    if (myScore > theirScore) {
         winner = this;
         loser = &ship;
     } else {
@@ -94,18 +94,18 @@ bool Ship::battle(Ship ship)
 
     for (; iterator < winner->crew.end(); iterator++) {
 
-        for(int i = 0; i < (rand() % 3); i++){
+        for (int i = 0; i < (rand() % 3); i++) {
             iterator->drinkSomeRum();
         }
     }
 
-    for(int i = 0; i < ((rand() % 3)+1); i++){
+    for (int i = 0; i < ((rand() % 3) + 1); i++) {
         winner->captain.drinkSomeRum();
     }
     iterator = loser->crew.begin();
     for (; iterator < loser->crew.end(); iterator++) {
 
-        if((rand() % 10) > 4) {
+        if ((rand() % 10) > 4) {
             iterator->die();
         }
     }
@@ -115,14 +115,14 @@ bool Ship::battle(Ship ship)
 
     std::cout << std::endl << "The winner is: " << winner->name << std::endl;
 
-    if(myScore > theirScore) {
+    if (myScore > theirScore) {
         return true;
     } else {
         return false;
     }
 }
 
-int Ship::calculate(Ship* ship)
+int Ship::calculate(Ship *ship)
 {
     int score = 0;
     score += ship->crew.size();
@@ -131,7 +131,7 @@ int Ship::calculate(Ship* ship)
     return score;
 }
 
-const std::vector<Pirate> &Ship::getCrew() const
+const std::vector <Pirate> &Ship::getCrew() const
 {
     return crew;
 }

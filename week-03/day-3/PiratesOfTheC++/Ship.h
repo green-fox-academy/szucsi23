@@ -16,9 +16,12 @@ public:
     Ship(const std::string &name = "Common Ship");
 
     void fillship();
+
     void throwThemOffBoard();
+
     bool battle(Ship);
-    int calculate(Ship*);
+
+    int calculate(Ship *);
 
     const std::vector<Pirate> &getCrew() const;
 

@@ -14,7 +14,9 @@
 class Armada {
 public:
     void formAFleet();
+
     bool war(Armada);
+
 private:
     std::vector<Ship> fleet;
 };
