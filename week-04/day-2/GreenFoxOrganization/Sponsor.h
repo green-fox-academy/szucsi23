@@ -10,7 +10,7 @@
 class Sponsor : public Person {
 public:
     Sponsor();
-    Sponsor(std::string name, int age, Gender gender, std::string company;
+    Sponsor(std::string name, int age, Gender gender, std::string company);
 
     void introduce() override;
     void getGoal() override;

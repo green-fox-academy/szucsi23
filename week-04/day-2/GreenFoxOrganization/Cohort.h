@@ -15,6 +15,7 @@ public:
 
     void addStudent(Student*);
     void addMentor(Mentor*);
+    void info();
 private:
     std::string _name;
     std::vector<Student> _students;
