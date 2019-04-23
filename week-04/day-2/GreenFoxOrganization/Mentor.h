@@ -16,7 +16,14 @@ enum Level {
 class Mentor : public Person{
 public:
     Mentor();
-    Mentor(std::string name, int age, Gender gender, )
+    Mentor(std::string name, int age, Gender gender, Level level);
+
+    std::string getRealLevel();
+
+    void getGoal() override;
+    void introduce() override;
+
+
 private:
     Level _level;
 

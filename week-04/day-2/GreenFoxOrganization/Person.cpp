@@ -38,7 +38,11 @@ const std::string &Person::getName() const
     return _name;
 }
 
-Gender Person::getGender() const
+std::string Person::getRealGender()
 {
-    return _gender;
+    switch(_gender) {
+        case MALE: return "male";
+        case FEMALE: return "female";
+        case APACHEHELICOPTER: return "apache helicopter";
+    }
 }

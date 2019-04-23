@@ -19,7 +19,7 @@ Student::Student(std::string name, int age, Gender gender, std::string previousO
 
 void Student::introduce()
 {
-    std::cout << "Hello, my name is " << getName() << " and I'm a " << getAge() << " years old " << getGender();
+    std::cout << "Hello, my name is " << getName() << " and I'm a " << getAge() << " years old " << getRealGender();
     std::cout << " from " << _previousOrganization << " who skipped " << _skippedDays << " days already." << std::endl;
 
 }

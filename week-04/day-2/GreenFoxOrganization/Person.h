@@ -20,10 +20,8 @@ public:
     Person(std::string name, int age, Gender gender);
 
     int getAge() const;
-
     const std::string &getName() const;
-
-    Gender getGender() const;
+    std::string getRealGender();
 
     virtual void introduce();
     virtual void getGoal();
