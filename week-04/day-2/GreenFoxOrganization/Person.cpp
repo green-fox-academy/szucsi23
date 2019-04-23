@@ -20,7 +20,7 @@ Person::Person(std::string name, int age, Gender gender)
 
 void Person::introduce()
 {
-    std::cout << "Hello, my name is " << _name << " and I'm a " << _age << " years old " << _gender << "." << std::endl;
+    std::cout << "Hello, my name is " << _name << " and I'm a " << _age << " years old " << getRealGender() << "." << std::endl;
 }
 
 void Person::getGoal()

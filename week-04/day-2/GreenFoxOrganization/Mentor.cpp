@@ -24,7 +24,7 @@ void Mentor::getGoal()
 void Mentor::introduce()
 {
     std::cout << "Hello, my name is " << getName() << " and I'm a " << getAge() << " years old " << getRealGender();
-    std::cout << getRealLevel() << " mentor." << std::endl;
+    std::cout << " " << getRealLevel() << " mentor." << std::endl;
 }
 
 std::string Mentor::getRealLevel()

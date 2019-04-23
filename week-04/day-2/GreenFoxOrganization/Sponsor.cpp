@@ -19,7 +19,7 @@ Sponsor::Sponsor(std::string name, int age, Gender gender, std::string company) 
 void Sponsor::introduce()
 {
     std::cout << "Hello, my name is " << getName() << " and I'm a " << getAge() << " years old " << getRealGender();
-    std::cout << " who represents " << _company << " and hired " << _hiredStudents << " students so far.";
+    std::cout << " who represents " << _company << " and hired " << _hiredStudents << " students so far." << std::endl;
 }
 
 void Sponsor::getGoal()
