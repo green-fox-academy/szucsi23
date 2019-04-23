@@ -22,8 +22,12 @@ public:
     const std::string &getColour() const;
     std::string getTypeString() const;
 
-    virtual void status(int);
-    virtual void watering(double, double);
+    bool status();
+    void statusOut();
+    void watering(double);
+
+    virtual double getPercentage() = 0;
+    virtual int getLimit() = 0;
 private:
     double _waterLevel;
     std::string _colour;

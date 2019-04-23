@@ -37,14 +37,26 @@ std::string Plant::getTypeString() const
     }
 }
 
-void Plant::watering(double percentage, double amount)
+void Plant::watering(double amount)
 {
+    double percentage = getPercentage();
     _waterLevel += (amount * percentage);
 }
 
-void Plant::status(int margin)
+bool Plant::status()
 {
-    if(getWaterLevel() < margin) {
+    int limit = getLimit();
+    if(getWaterLevel() < limit) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void Plant::statusOut()
+{
+    int limit = getLimit();
+    if(getWaterLevel() < limit) {
         std::cout << "The " << _colour << " " << getTypeString() << " needs water." << std::endl;
     } else {
         std::cout << "The " << _colour << " " << getTypeString() << " doesn't need water." << std::endl;

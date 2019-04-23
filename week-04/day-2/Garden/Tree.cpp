@@ -4,12 +4,16 @@
 
 #include "Tree.h"
 
-void Tree::status()
+
+double Tree::getPercentage()
 {
-    status(10);
+    return 0.40;
 }
 
-void Tree::watering(double amount)
+int Tree::getLimit()
 {
-    watering(0.4, amount);
+    return 10;
 }
+
+Tree::Tree(const std::string &colour, Type type, int waterLevel) : Plant(colour, type, waterLevel)
+{}

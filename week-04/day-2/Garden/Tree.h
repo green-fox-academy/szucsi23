@@ -9,8 +9,10 @@
 
 class Tree : public Plant{
 public:
-    void status() override ;
-    void watering(double) override ;
+    Tree(const std::string &colour, Type type, int waterLevel);
+
+    double getPercentage() override;
+    int getLimit() override ;
 private:
 };
 

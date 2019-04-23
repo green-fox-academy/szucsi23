@@ -4,12 +4,16 @@
 
 #include "Flower.h"
 
-void Flower::status()
+
+int Flower::getLimit()
 {
-    status(5);
+    return 5;
 }
 
-void Flower::watering(double amount)
+double Flower::getPercentage()
 {
-    watering(0.75, amount);
+    return 0.75;
 }
+
+Flower::Flower(const std::string &colour, Type type, int waterLevel) : Plant(colour, type, waterLevel)
+{}

@@ -9,8 +9,10 @@
 
 class Flower : public Plant{
 public:
-    void status() override ;
-    void watering(double) override ;
+    Flower(const std::string &colour, Type type, int waterLevel);
+
+    double getPercentage() override;
+    int getLimit() override;
 private:
 };
 
