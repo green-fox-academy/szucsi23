@@ -5,8 +5,21 @@
 #ifndef GREENFOXORGANIZATION_MENTOR_H
 #define GREENFOXORGANIZATION_MENTOR_H
 
+#include "Person.h"
 
-class Mentor {
+enum Level {
+    JUNIOR,
+    INTERMIDIATE,
+    SENIOR
+};
+
+class Mentor : public Person{
+public:
+    Mentor();
+    Mentor(std::string name, int age, Gender gender, )
+private:
+    Level _level;
+
 
 };
 
