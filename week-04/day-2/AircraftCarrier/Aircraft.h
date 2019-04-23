@@ -17,6 +17,10 @@ class Aircraft {
 public:
     Aircraft(Type type);
 
+    int getAmmo() const;
+
+    int getBaseDamage() const;
+
     std::string getType();
     std::string getStatus();
     bool isPriority();

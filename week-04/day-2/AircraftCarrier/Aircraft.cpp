@@ -58,3 +58,13 @@ int Aircraft::refill(int storage)
     return remaining;
 }
 
+int Aircraft::getAmmo() const
+{
+    return _ammo;
+}
+
+int Aircraft::getBaseDamage() const
+{
+    return _baseDamage;
+}
+
