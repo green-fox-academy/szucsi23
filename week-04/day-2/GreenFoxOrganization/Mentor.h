@@ -1,0 +1,14 @@
+//
+// Created by hun46 on 2019. 04. 23..
+//
+
+#ifndef GREENFOXORGANIZATION_MENTOR_H
+#define GREENFOXORGANIZATION_MENTOR_H
+
+
+class Mentor {
+
+};
+
+
+#endif //GREENFOXORGANIZATION_MENTOR_H
