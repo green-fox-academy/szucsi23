@@ -4,7 +4,7 @@
 
 #include "BassGuitar.h"
 
-BassGuitar::BassGuitar(int x) : StringedInstrument(x)
+BassGuitar::BassGuitar(int x) : StringedInstrument(x, "Bass Guitar")
 {
 
 }

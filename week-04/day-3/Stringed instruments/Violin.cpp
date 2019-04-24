@@ -4,7 +4,7 @@
 
 #include "Violin.h"
 
-Violin::Violin(int x) : StringedInstrument(x)
+Violin::Violin(int x) : StringedInstrument(x, "Violin")
 {
 
 }

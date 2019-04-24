@@ -9,7 +9,8 @@ void StringedInstrument::play()
     std::cout << _name << ", a " << _numberOfStrings << "-stringed instrument, that goes " << sound() << std::endl;
 }
 
-StringedInstrument::StringedInstrument(int strings)
+StringedInstrument::StringedInstrument(int strings, std::string name)
 {
     _numberOfStrings = strings;
+    _name = name;
 }

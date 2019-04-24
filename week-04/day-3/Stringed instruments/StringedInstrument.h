@@ -9,7 +9,7 @@
 
 class StringedInstrument : public Instrument{
 public:
-    StringedInstrument(int strings);
+    StringedInstrument(int strings, std::string name);
     virtual std::string sound() = 0;
     virtual void play();
 protected:
