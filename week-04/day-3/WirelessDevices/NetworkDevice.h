@@ -11,7 +11,7 @@ class NetworkDevice : virtual public Device{
 public:
     NetworkDevice(std::string id, int bandwidth);
 
-private:
+protected:
     int _bandwidth;
 };
 

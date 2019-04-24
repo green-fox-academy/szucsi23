@@ -9,5 +9,5 @@ WirelessAdapter::WirelessAdapter(std::string id, int usbType, int bandwidth) : U
 
 void WirelessAdapter::info()
 {
-    std::cout << std::endl;
+    std::cout << getId() << ", " << _usbType << ", " << _bandwidth << std::endl;
 }

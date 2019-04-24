@@ -11,7 +11,7 @@ class USBDevice : virtual public Device{
 public:
     USBDevice(std::string id, int usbType);
 
-private:
+protected:
     int _usbType;
 };
 
