@@ -1,7 +1,8 @@
 #include <iostream>
+#include <ctime>
+#include "CowBull.h"
 
-int main()
-{
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+int main() {
+
+   int x = game();
 }

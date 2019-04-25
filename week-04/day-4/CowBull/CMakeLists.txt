@@ -3,7 +3,7 @@ project(CowBull)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CowBull main.cpp)# Change this to the name of the directory that contains your code
+
 set(PROJECT_LIB_NAME CowBull_lib)
 
 # Change this to the name of the directory that contains your tests

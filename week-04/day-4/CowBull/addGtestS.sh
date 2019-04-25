@@ -100,6 +100,9 @@ TEST_PROJECT_NAME=$(tail -1 CMakeLists.txt | grep -o "${PROJECT_NAME}")
 if [ "${TEST_PROJECT_NAME}" == "${PROJECT_NAME}" ];
 then
 
+  # Uncomment if you use Windows
+  sed -i '$d' CMakeLists.txt;
+
   # Uncomment if you use Mac
   #sed -i '' -e '$ d' CMakeLists.txt;
 
