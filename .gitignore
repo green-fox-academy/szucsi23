@@ -123,4 +123,7 @@ modules.xml
 # Sonarlint plugin
 .idea/sonarlint
 
+# testfile
+./addGtestS.sh
+
 # End of https://www.gitignore.io/api/c++,clion+all
