@@ -5,9 +5,14 @@
 #ifndef FILESANDTESTING_DECRYPTER_H
 #define FILESANDTESTING_DECRYPTER_H
 
+#include <fstream>
+#include <iostream>
+
 
 class Decrypter {
-
+public:
+    void fileToOutput(std::string fileName);
+private:
 };
 
 
