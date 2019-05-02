@@ -1,0 +1,10 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    // Create a program that decrypts the file called "encoded-lines.txt",
+    // and pritns the decrypred text to the terminal window.
+
+    return 0;
+}

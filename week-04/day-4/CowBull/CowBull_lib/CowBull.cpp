@@ -89,10 +89,10 @@ GameState game()
 
     core = setup(core);
 
-    //For testing purposes:
+    /*//For testing purposes:
     for (int i = 0; i < 4; i++) {
         std::cout << core.secret[i] << " ";
-    }
+    }*/
 
 
     while (core.state == RUNNING) {
@@ -121,6 +121,11 @@ GameState game()
         if (TurnCount > 10 && core.state != FINISHED) {
             std::cout << std::endl;
             std::cout << "Sorry, but you have ran out of guesses." << std::endl;
+            std::cout << "The combination was: ";
+            for (int i = 0; i < 4; i++) {
+                std::cout << core.secret[i] << " ";
+            }
+            std::cout << std::endl;
             core.state = FINISHED;
         }
 
