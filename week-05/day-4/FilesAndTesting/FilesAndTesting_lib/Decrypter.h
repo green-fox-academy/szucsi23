@@ -7,11 +7,12 @@
 
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 
 class Decrypter {
 public:
-    void fileToOutput(std::string fileName);
+    std::stringstream fileToStream(std::string fileName);
 private:
 };
 
