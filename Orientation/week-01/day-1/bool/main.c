@@ -141,7 +141,7 @@ int sum_of_digits(int a, int b)
 
 int is_prime(int b)
 {
-    for (int i = 1; i < b/2; ++i) {
+    for (int i = 1; i < sqrt(b); ++i) {
         if((b % i) == 0) {
             return 0;
         }
