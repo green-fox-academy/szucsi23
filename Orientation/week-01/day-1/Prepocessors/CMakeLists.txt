@@ -3,4 +3,4 @@ project(Prepocessors C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Prepocessors main.c)
+add_executable(Prepocessors main.c circle.c circle.h)
