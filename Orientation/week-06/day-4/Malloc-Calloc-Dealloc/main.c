@@ -60,6 +60,6 @@ int main()
         printf("%d, ", pointer[i]);
     }
 
-    realloc(pointer, 0);
+    pointer = realloc(pointer, 0);
     return 0;
 }
