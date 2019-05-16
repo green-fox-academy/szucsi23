@@ -2,9 +2,11 @@
 #include <stdlib.h>
 
 char* concatenate(char* first, char* second);
+char *read_string();
 
 int main()
 {
+/*
     // please allocate a 10 long array and fill it with even numbers
     // please allocate a 10 long array and fill it with odd numbers
     // select an array, and push the elements into the another array
@@ -83,21 +85,34 @@ int main()
         printf("%d ", ptr_2[i]);
     }
 
+    printf("\n");
+
     free(ptr);
     ptr = NULL;
     free(ptr_2);
     ptr_2 = NULL;
+
+*/
     //------------------------------------------------------------------------------------------------------------------
     // write a function which takes 2 strings as parameter, concatenates them together and returns it back.
     // Test it for long and empty strings as well.
     // Try to use the least amount of memory that's possible.
 
-    char *first = "Almafa, kortefa";
-    char *second = ", barackfa, szilvafa.";
+    printf("\nPlease give me the first string:\n");
+    char *first = read_string();
+    printf("\nPlease give me the first string:\n");
+    char *second = read_string();
 
     char *mix = concatenate(first, second);
 
     printf("%s", mix);
+
+    free(first);
+    first = NULL;
+    free(second);
+    second = NULL;
+    free(mix);
+    mix = NULL;
 
     return 0;
 }
@@ -113,7 +128,7 @@ char *concatenate(char *first, char *second)
         second_size = i+2;
     }
 
-    //TODO: Ask Matyi about this:
+
     first = realloc(first, sizeof(char)*(first_size+second_size-1));
 
     for (int i = 0; i < (second_size); ++i) {
@@ -121,4 +136,31 @@ char *concatenate(char *first, char *second)
     }
 
     return first;
+}
+
+char *read_string()
+{
+    size_t size = 1;
+    char *string = (char *)calloc(size, sizeof(char));
+
+    // Read a character from the standard input
+    char c = getc(stdin);
+
+    // Check if the character is not '\n'
+    while (c != '\n') {
+        // Reallocate the memory for the string to fit one more character
+        size++;
+        string = (char *) realloc(string, size * sizeof(char));
+
+        // Append the character to the end of the string
+        string[size - 2] = c;
+
+        // Append a '\0' to the end of the string
+        string[size - 1] = '\0';
+
+        // Repeat
+        c = getc(stdin);
+    }
+
+    return string;
 }
