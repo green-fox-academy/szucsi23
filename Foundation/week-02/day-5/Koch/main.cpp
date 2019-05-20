@@ -113,7 +113,7 @@ int main(int argc, char *args[])
 
         //draw(p, 2);
 
-        drawflake(p, 4);
+        drawflake(p, 3);
 
         //Update screen
         SDL_RenderPresent(gRenderer);
