@@ -51,7 +51,7 @@ int main(void)
 
 		if (BSP_PB_GetState(BUTTON_KEY) == 1) {
 
-			for (int i = 0; code != '\0'; ++i) {
+			for (int i = 0; code[i] != '\0'; ++i) {
 
 				if (code[i] == '.') {
 					BSP_LED_On(LED1);
@@ -60,11 +60,11 @@ int main(void)
 					HAL_Delay(400);
 				} else if (code[i] == '-') {
 					BSP_LED_On(LED1);
-					HAL_Delay(500);
+					HAL_Delay(800);
 					BSP_LED_Off(LED1);
 					HAL_Delay(400);
 				} else if (code[i] == ' ') {
-					HAL_Delay(500);
+					HAL_Delay(600);
 				}
 			}
 		}
