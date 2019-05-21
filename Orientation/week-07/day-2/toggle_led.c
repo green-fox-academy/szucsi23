@@ -24,7 +24,7 @@ int main(void)
 
         if (BSP_PB_GetState(BUTTON_KEY) == 1) {
         	BSP_LED_Toggle(LED1);
-        	HAL_Delay(500);
+        	while (BSP_PB_GetState(BUTTON_KEY) == 1){}
         }
     }
 }

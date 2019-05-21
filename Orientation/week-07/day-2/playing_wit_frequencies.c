@@ -42,7 +42,7 @@ int main(void)
 		}
 		if (flag == 1) {
 			delay *= 2;
-			if (delay == 250) {
+			if (delay == 2000) {
 				flag = 0;
 			}
 		}
