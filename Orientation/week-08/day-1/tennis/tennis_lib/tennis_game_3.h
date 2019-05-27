@@ -3,10 +3,10 @@
 
 typedef struct
 {
-    int p1;
-    int p2;
-    char *p1n;
-    char *p2n;
+    int points_1;
+    int points_2;
+    char *player_name1;
+    char *player_name2;
 } tennis_game_3_t;
 
 tennis_game_3_t create_tennis_game_3(const char *, const char *);
