@@ -27,108 +27,67 @@ void won_point_2(tennis_game_2_t *tennis_game, const char *player_name)
 
 const char *get_score_2(tennis_game_2_t *tennis_game)
 {
-    char *score = calloc(10, 10);
+    char *score = NULL;
+    char partial_scores[][8] = {
+            {"Love"},
+            {"Fifteen"},
+            {"Thirty"},
+            {"Forty"}
+    };
 
     if (tennis_game->P1point == tennis_game->P2point && tennis_game->P1point < 4) {
-        if (tennis_game->P1point == 0)
-            strcpy(score, "Love");
-        if (tennis_game->P1point == 1)
-            strcpy(score, "Fifteen");
-        if (tennis_game->P1point == 2)
-            strcpy(score, "Thirty");
-        if (tennis_game->P1point == 3)
-            strcpy(score, "Forty");
-
-        strcat(score, "-All");
-        return score;
+        for (int i = 0; i < 4; ++i) {
+            if (tennis_game->P1point == i) {
+                score = (char *) calloc(18, 1);
+                strcpy(score, partial_scores[i]);
+                strcat(score, "-All");
+                return score;
+            }
+        }
     }
     if (tennis_game->P1point == tennis_game->P2point && tennis_game->P1point > 3) {
+        score = (char *) calloc(6, 1);
         strcpy(score, "Deuce");
         return score;
     }
 
-    if (tennis_game->P1point > 0 && tennis_game->P2point == 0) {
-        if (tennis_game->P1point == 1)
-            tennis_game->P1res = "Fifteen";
-        if (tennis_game->P1point == 2)
-            tennis_game->P1res = "Thirty";
-        if (tennis_game->P1point == 3)
-            tennis_game->P1res = "Forty";
+    if (tennis_game->P1point >= 4 || tennis_game->P2point >= 4) {
 
-        tennis_game->P2res = "Love";
-        strcpy(score, tennis_game->P1res);
-        strcat(score, "-");
-        strcat(score, tennis_game->P2res);
-    }
+        int minusResult = tennis_game->P1point - tennis_game->P2point;
 
-    if (tennis_game->P2point > 0 && tennis_game->P1point == 0) {
-        if (tennis_game->P2point == 1)
-            tennis_game->P2res = "Fifteen";
-        if (tennis_game->P2point == 2)
-            tennis_game->P2res = "Thirty";
-        if (tennis_game->P2point == 3)
-            tennis_game->P2res = "Forty";
+        if (minusResult == 1 || minusResult == -1) {
+            score = (char *) calloc(18, 1);
+            if (minusResult == 1) {
+                score = "Advantage player1";
 
-        tennis_game->P1res = "Love";
-        strcpy(score, tennis_game->P1res);
-        strcat(score, "-");
-        strcat(score, tennis_game->P2res);
-    }
+            } else {
+                score = "Advantage player2";
+            }
 
-    if (tennis_game->P1point > tennis_game->P2point && tennis_game->P1point < 4) {
-        if (tennis_game->P1point == 1)
-            tennis_game->P1res = "Fifteen";
-        if (tennis_game->P1point == 2)
-            tennis_game->P1res = "Thirty";
-        if (tennis_game->P1point == 3)
-            tennis_game->P1res = "Forty";
-        if (tennis_game->P2point == 1)
-            tennis_game->P2res = "Fifteen";
-        if (tennis_game->P2point == 2)
-            tennis_game->P2res = "Thirty";
-        if (tennis_game->P2point == 3)
-            tennis_game->P2res = "Forty";
-
-        strcpy(score, tennis_game->P1res);
-        strcat(score, "-");
-        strcat(score, tennis_game->P2res);
-        return score;
-    }
-    if (tennis_game->P2point > tennis_game->P1point && tennis_game->P2point < 4) {
-        if (tennis_game->P1point == 1)
-            tennis_game->P1res = "Fifteen";
-        if (tennis_game->P1point == 2)
-            tennis_game->P1res = "Thirty";
-        if (tennis_game->P1point == 3)
-            tennis_game->P1res = "Forty";
-        if (tennis_game->P2point == 1)
-            tennis_game->P2res = "Fifteen";
-        if (tennis_game->P2point == 2)
-            tennis_game->P2res = "Thirty";
-        if (tennis_game->P2point == 3)
-            tennis_game->P2res = "Forty";
-
-        strcpy(score, tennis_game->P1res);
-        strcat(score, "-");
-        strcat(score, tennis_game->P2res);
+        } else {
+            score = (char *) calloc(15, 1);
+            if (minusResult >= 2) {
+                score = "Win for player1";
+            } else {
+                score = "Win for player2";
+            }
+        }
         return score;
     }
 
-    if (tennis_game->P1point > tennis_game->P2point && tennis_game->P2point >= 3) {
-        strcpy(score, "Advantage player1");
+    for (int i = 0; i < 4; ++i) {
+        if (tennis_game->P1point == i) {
+            tennis_game->P1res = partial_scores[i];
+            score = (char *) calloc(15, 1);
+            strcpy(score, partial_scores[i]);
+            strcat(score, "-");
+        }
     }
-
-    if (tennis_game->P2point > tennis_game->P1point && tennis_game->P1point >= 3) {
-        strcpy(score, "Advantage player2");
+    for (int i = 0; i < 4; ++i) {
+        if (tennis_game->P2point == i) {
+            tennis_game->P2res = partial_scores[i];
+            strcat(score, partial_scores[i]);
+            return score;
+        }
     }
-
-    if (tennis_game->P1point >= 4 && tennis_game->P2point >= 0 && (tennis_game->P1point - tennis_game->P2point) >= 2) {
-        strcpy(score, "Win for player1");
-    }
-
-    if (tennis_game->P2point >= 4 && tennis_game->P1point >= 0 && (tennis_game->P2point - tennis_game->P1point) >= 2) {
-        strcpy(score, "Win for player2");
-    }
-
-    return score;
 }

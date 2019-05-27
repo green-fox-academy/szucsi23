@@ -50,7 +50,7 @@ char *get_score_1(tennis_game_1_t *tennis_game)
                 score = (char *) calloc (sizeof(equal_scores[i]), 1);
                 strcat(score, equal_scores[i]);
                 //TODO: why doesn't return
-                //score = &equal_scores[i][0];
+                //score = equal_scores + i;
             }
         }
 
@@ -73,7 +73,7 @@ char *get_score_1(tennis_game_1_t *tennis_game)
 
         for (int i = 0; i < 4; ++i) {
             if(tennis_game->m_score1 == i) {
-                score = (char *) calloc ((sizeof(personal_scores[i]) * 2) + 1, 1);
+                score = (char *) calloc ((sizeof(personal_scores[i]) * 2) - 1, 1);
                 strcat(score, personal_scores[i]);
                 strcat(score, "-");
             }

@@ -4,7 +4,12 @@
 
 tennis_game_3_t create_tennis_game_3(const char *p1n, const char *p2n)
 {
-    tennis_game_3_t result = {0, 0, calloc(strlen(p1n) + 1, 1), calloc(strlen(p2n) + 1, 1)};
+    tennis_game_3_t result = {
+            0,
+            0,
+            (char *)calloc(strlen(p1n) + 1, 1),
+            (char *) calloc(strlen(p2n) + 1, 1)
+    };
     strcpy(result.p1n, p1n);
     strcpy(result.p2n, p2n);
     return result;
@@ -15,7 +20,7 @@ void won_point_3(tennis_game_3_t *tg, const char *pn)
     strcmp(pn, "player1") ? tg->p2++ : tg->p1++;
 }
 
-const char * get_score_3(tennis_game_3_t *tg)
+const char *get_score_3(tennis_game_3_t *tg)
 {
     char *s;
 
