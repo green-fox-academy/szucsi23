@@ -4,7 +4,9 @@
 #define HEIGHT 272
 
 volatile int reset = 0;
-volatile uint8_t counter_changed = 0;
+volatile uint32_t start_time = 0;
+volatile uint32_t touch_time = 0;
+volatile int countdown = 0;
 RNG_HandleTypeDef rng_handle;
 
 void init_all();
@@ -17,14 +19,16 @@ int main(void)
 	char clock_buffer[49];
 
 	while (1) {
+		HAL_Delay(3000);
+		BSP_LCD_Clear(0x00000000);
 
-		int clock = setup();
-		int no_show = (HAL_RNG_GetRandomNumber(&rng_handle) % (clock / 2)) + 2;
-		int miliseconds = clock * 1000;
+		countdown = setup();
+		int no_show = (HAL_RNG_GetRandomNumber(&rng_handle) % (countdown / 2)) + 2;
 
-		for (; clock >= 0; clock--) {
-			if (clock > no_show) {
-				sprintf(clock_buffer,"Touch the screen, when the timer reaches Zero: %d",clock);
+		start_time = HAL_GetTick();
+		for (; countdown >= 0; countdown--) {
+			if (countdown > no_show) {
+				sprintf(clock_buffer,"Touch the screen, when the timer reaches Zero: %d",countdown);
 				BSP_LCD_DisplayStringAt(68, 10, clock_buffer, LEFT_MODE);
 
 				HAL_Delay(1000);
@@ -60,6 +64,13 @@ void init_all()
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+	touch_time = HAL_GetTick();
+	uint32_t elapsed_time = (touch_time - start_time)-(countdown*1000);
+	char end_message_buffer[50];
+
+	sprintf(end_message_buffer, "You were %d milliseconds close to Zero.", elapsed_time);
+	BSP_LCD_DisplayStringAt(68, HEIGHT/2, end_message_buffer, LEFT_MODE);
+
 	reset = 1;
 
 }
