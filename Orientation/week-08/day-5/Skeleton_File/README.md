@@ -8,7 +8,7 @@
         > only calls _init\_ALL\(\);_  
     
     * initializers\.h
-        > should be in _inc_ folder<\br>
+        > should be in _inc_ folder  
         > contains all the global variables \(handles\)  
         > contains all the declarations of the functions  
     
