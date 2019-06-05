@@ -16,6 +16,14 @@
         > should be in _src_ folder  
         > contains all the function definitions  
         > **Always edit the _init\_ALL\(\);_ function, by uncommenting the needed initializer functions\!**  
+        
+    * vector\.h
+        > should be in _inc_ folder  
+        > header of C\-implemented vector \"class\"  
+        
+    * vector\.c
+        > should be in _src_ folder  
+        > source file of C\-implemented vector \"class\"  
     
 * Tasks:
     - [x] Generate needed files.
