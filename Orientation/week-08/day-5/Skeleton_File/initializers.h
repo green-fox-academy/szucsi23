@@ -16,7 +16,8 @@ extern TIM_HandleTypeDef timer_handle;
 extern TIM_OC_InitTypeDef pwm_handle;
 extern UART_HandleTypeDef uart_handle;
 extern I2C_HandleTypeDef I2C_handle;
-
+extern ADC_HandleTypeDef adc_handle;
+extern ADC_ChannelConfTypeDef adc_channel_config;
 // Calls all non-commented initializers----------------------------------------------------------------------
 void init_ALL();
 
@@ -30,6 +31,7 @@ void init_Timer();
 void init_PWM();
 void init_UART();
 void init_I2C();
+void init_ADC();
 
 // External initializers-------------------------------------------------------------------------------------
 void init_Analog_Pins();
@@ -42,7 +44,9 @@ void init_User_Button_as_Interrupt();
 void init_External_Button_as_Interrupt();
 void init_Touchscreen_as_Interrupt();
 void init_Timer_as_Interrupt();
+void init_PWM_as_Interrupt();
 void init_UART_as_Interrupt();
+void init_ADC_as_Interrupt();
 
 // Interrupt Handles-----------------------------------------------------------------------------------------
 void EXTI4_IRQHandler();
