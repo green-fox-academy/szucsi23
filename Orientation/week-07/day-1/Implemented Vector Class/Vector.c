@@ -8,19 +8,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-void vector_init(vector *v)
+void vector_init(vector_t *v)
 {
     v->_data = NULL;
     v->_capacity = 0;
     v->_size = 0;
 }
 
-int vector_size(vector *v)
+int vector_size(vector_t *v)
 {
     return v->_size;
 }
 
-void vector_push_back(vector *v, void *data)
+void vector_push_back(vector_t *v, void *data)
 {
     if (v->_capacity == 0) {
         v->_capacity = 10;
@@ -37,7 +37,7 @@ void vector_push_back(vector *v, void *data)
 }
 
 
-void vector_set(vector *v, int index, void *data)
+void vector_set(vector_t *v, int index, void *data)
 {
     if (index >= v->_size) {
         return;
@@ -46,7 +46,7 @@ void vector_set(vector *v, int index, void *data)
     v->_data[index] = data;
 }
 
-void *vector_get(vector *v, int index)
+void *vector_get(vector_t *v, int index)
 {
     if (index >= v->_size) {
         return 0;
@@ -55,7 +55,7 @@ void *vector_get(vector *v, int index)
     return v->_data[index];
 }
 
-void vector_delete(vector *v, int index)
+void vector_delete(vector_t *v, int index)
 {
     if (index >= v->_size) {
         return;
@@ -79,12 +79,12 @@ void vector_delete(vector *v, int index)
     v->_size--;
 }
 
-void vector_free(vector *v)
+void vector_free(vector_t *v)
 {
     free(v->_data);
 }
 
-void vector_insert(vector *v, int index, void *data)
+void vector_insert(vector_t *v, int index, void *data)
 {
     if (v->_capacity == 0) {
         v->_capacity = 10;
@@ -104,22 +104,22 @@ void vector_insert(vector *v, int index, void *data)
     v->_data[index] = data;
 }
 
-int vector_capacity(vector *v)
+int vector_capacity(vector_t *v)
 {
     return v->_capacity;
 }
 
-int vector_available(vector *v)
+int vector_available(vector_t *v)
 {
     return (v->_capacity - v->_size);
 }
 
-int vector_is_empty(vector *v)
+int vector_is_empty(vector_t *v)
 {
     return (v->_size > 0);
 }
 
-int vector_search(vector *v, void *data)
+int vector_search(vector_t *v, void *data)
 {
     for (int i = 0; i < v->_size; ++i) {
         if (v->_data[i] == data) {
@@ -129,7 +129,7 @@ int vector_search(vector *v, void *data)
     return -1;
 }
 
-void vector_shuffle(vector *v)
+void vector_shuffle(vector_t *v)
 {
     int array[v->_size];
     for (int i = 0; i < v->_size; ++i) {
