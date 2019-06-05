@@ -7,7 +7,7 @@ static void SystemClock_Config(void);
 
 TIM_HandleTypeDef timer_interrupt_handle;
 
-volatile uint8_t counter = 0;
+volatile uint16_t counter = 0;
 volatile uint8_t flag = 0;
 volatile uint8_t state = 0;
 
@@ -19,8 +19,8 @@ void init_Timer_as_Interrupt()
 	;
 
 	timer_interrupt_handle.Instance = TIM4;
-	timer_interrupt_handle.Init.Prescaler = 54000 - 1;
-	timer_interrupt_handle.Init.Period = 2000 - 1;
+	timer_interrupt_handle.Init.Prescaler = 108 - 1;
+	timer_interrupt_handle.Init.Period = 1000 - 1;
 	timer_interrupt_handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	timer_interrupt_handle.Init.CounterMode = TIM_COUNTERMODE_UP;
 
@@ -72,7 +72,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)							//Timer callba
 		if (BSP_PB_GetState(BUTTON_KEY) == 1) {
 			counter++;
 			flag = 1;
-			if(counter >= 3) {
+			if(counter >= 2000) {
 				state = 1;
 				flag = 0;
 			}
