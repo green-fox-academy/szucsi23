@@ -144,23 +144,20 @@ int main(void)
 
 		if (HAL_ADC_PollForConversion(&adc_handle, 10) == HAL_OK) {
 			uint32_t adc_val = HAL_ADC_GetValue(&adc_handle);
-
-			if(prev_adc_val < (adc_val - 100) || prev_adc_val > (adc_val + 100)) {
+			if(prev_adc_val < (adc_val - 200) || prev_adc_val > (adc_val + 200)) {
 				prev_adc_val = adc_val;
 				fan_speed = adc_val / 40.6;
-
 
 				flag = 0;
 			}
 		}
 
-		if(prev_uart_speed != uart_speed && flag) {
+		if(flag) {
 
-			prev_uart_speed = uart_speed;
 			fan_speed = uart_speed;
 			free(text);
 			text = calloc(1, 1);
-
+			flag = 0;
 		}
 
 		printf("Fan speed: %d.\n", fan_speed);

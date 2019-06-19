@@ -127,6 +127,7 @@ int main(void)
 	init_Digital_Pins();
 
 	HAL_TIM_PWM_Start(&timer_handle, TIM_CHANNEL_1);
+	HAL_UART_Receive_IT(&uart_handle, &buffer, 1);
 
 	while (1) { /*-----------------------------INSERT MAIN MAGIC HERE---------------------------------*/    //just for me, to find main easily
 		HAL_Delay(250);
